@@ -1,0 +1,11 @@
+<div class="card m-3">  
+  <div class="card-body">
+    <div class="media">
+      <div class="media-body">    
+        <h1><%= @event.name %></h1>       
+        <p class="font-weight-bold d-inline-block mt-4"><%= day_and_time(@event) %> in <%= @event.location %></p>
+        <p><%= @event.description %></p>
+      </div>
+    </div>
+  </div>  
+</div>
