@@ -25,6 +25,16 @@
       <%= f.label :price, class: "font-weight-bold" %>
       <%= f.number_field :price, class: "form-control" %>   
     </div>
+
+     <div class="col-sm-12 my-2">
+      <%= f.label :capacity, class: "font-weight-bold" %>
+      <%= f.number_field :capacity, class: "form-control" %>   
+    </div>
+
+    <div class="col-sm-12 my-2">
+      <%= f.label :image_file_name, class: "font-weight-bold" %>
+      <%= f.text_field :image_file_name, class: "form-control" %>   
+    </div>
   </div>
 
   <%= f.submit class: "btn btn-warning px-4" %>
