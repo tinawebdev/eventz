@@ -1,0 +1,31 @@
+<%= form_with(model: event, local: true) do |f| %>
+  <div class="form-group row">
+
+    <div class="col-sm-12 my-2">
+      <%= f.label :name, class: "font-weight-bold" %>
+      <%= f.text_field :name, autofocus: true, class: "form-control" %>
+    </div>
+    
+    <div class="col-sm-12 my-2">
+      <%= f.label :description, class: "font-weight-bold" %>
+      <%= f.text_area :description, rows: 5, class: "form-control" %>   
+    </div>
+
+    <div class="col-sm-12 my-2">
+      <%= f.label :starts_at, class: "font-weight-bold" %>
+      <%= f.datetime_select :starts_at, {ampm: true}, {class: "mr-2 p-2 bg-light rounded"} %>   
+    </div>
+
+    <div class="col-sm-12 my-2">
+      <%= f.label :location, class: "font-weight-bold" %>
+      <%= f.text_field :location, class: "form-control" %>   
+    </div>
+
+    <div class="col-sm-12 my-2">
+      <%= f.label :price, class: "font-weight-bold" %>
+      <%= f.number_field :price, class: "form-control" %>   
+    </div>
+  </div>
+
+  <%= f.submit class: "btn btn-warning px-4" %>
+<% end %>
