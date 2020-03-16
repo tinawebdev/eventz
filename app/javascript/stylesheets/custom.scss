@@ -1,0 +1,12 @@
+$error-color: red;
+$error-background-color: #FFC;
+
+div.field_with_errors {
+  display: inline;
+  label {
+    color: $error-color;
+  }
+  input, textarea, select {
+    background: $error-background-color;
+  }
+}
