@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  has_many :registrations, dependent: :destroy
+
   validates :name, presence: true, uniqueness: true
   validates :location, presence: true
   validates :description, length: { minimum: 25 }
@@ -15,5 +17,9 @@ class Event < ApplicationRecord
 
   def free?
     price.blank? || price.zero?
+  end
+
+  def sold_out?
+    (capacity - registrations.size).zero?
   end
 end

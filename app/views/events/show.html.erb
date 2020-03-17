@@ -7,6 +7,10 @@
         <p class="font-weight-bold d-inline-block mt-4"><%= day_and_time(@event) %> in <%= @event.location %></p>
         <p class="badge badge-light ml-1 border border-primary"><%= pluralize(@event.capacity, "spot") %> &bull; <%= price(@event) %></p>
         <p><%= @event.description %></p>
+        <div class="mb-3">
+          <%= register_or_sold_out(@event) %>
+        </div>
+        <p><%= link_to "Who's registered?", event_registrations_path(@event) %></p>
         <%= link_to "Edit", edit_event_path(@event), class: "btn btn-warning px-4" %>
         <%= link_to "Delete", @event, class: "btn btn-danger px-4", method: :delete, 
                               data: { confirm: "Really?" } %>
