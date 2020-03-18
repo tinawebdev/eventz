@@ -12,3 +12,19 @@
     </div>
   </div>
 </div>
+
+<% if @registrations.present? %>
+  <div class="card m-3">  
+    <div class="card-body">  
+      <h3>Registrations</h3>
+      <% @registrations.each do |r| %> 
+        <ul class="mt-2">
+          <li class="mt-2">
+            <p class="m-0"><%= link_to r.event.name, r.event %></p>     
+            <small><%= time_ago_in_words(r.created_at) %> ago</small>
+          </li>
+        </ul>
+      <% end %>  
+    </div>
+  </div>
+<% end %>
