@@ -1,0 +1,21 @@
+<div class="card m-3">
+  <div class="card-body">    
+    <h1>Sing In</h1>
+    <%= form_with(url: session_path, local: true) do |f| %>
+
+    <div class="form-group row">
+      <div class="col-sm-12 my-2">
+        <%= f.label :email, class: "font-weight-bold" %>
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="col-sm-12 my-2">
+        <%= f.label :password, class: "font-weight-bold" %>
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+    </div>
+
+    <%= f.submit "Sing In", class: "btn btn-warning px-4" %>
+    <% end %>
+  </div>
+</div>

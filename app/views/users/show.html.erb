@@ -3,10 +3,12 @@
     <h1><%= @user.name %></h1>
     <p><%= mail_to(@user.email) %></p>
     <div>
-      <%= link_to "Edit Account", edit_user_path(@user), class: "btn btn-warning px-4" %>
-      <%= link_to "Delete Account", @user, method: :delete,
-                  data: { confirm: "Are you shure?" },
-                  class: "btn btn-danger px-4" %>
+      <% if current_user?(@user) %>
+        <%= link_to "Edit Account", edit_user_path(@user), class: "btn btn-warning px-4" %>
+        <%= link_to "Delete Account", @user, method: :delete,
+                    data: { confirm: "Are you shure?" },
+                    class: "btn btn-danger px-4" %>
+      <% end %>
     </div>
   </div>
 </div>
