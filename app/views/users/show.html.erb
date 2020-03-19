@@ -28,3 +28,14 @@
     </div>
   </div>
 <% end %>
+
+<% if @liked_events.present? %>
+  <div class="card m-3">  
+    <div class="card-body">  
+      <h3>Liked Events</h3>
+      <% @liked_events.each do |event| %>
+        <%= link_to event.name, event %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

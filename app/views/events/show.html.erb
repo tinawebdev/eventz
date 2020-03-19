@@ -11,6 +11,14 @@
           <%= register_or_sold_out(@event) %>
         </div>
         <p><%= link_to "Who's registered?", event_registrations_path(@event) %></p>
+        <% if current_user %>
+          <div class="list-group list-group-horizontal"> 
+            <%= like_or_unlike_button(@event, @like) %>          
+            <div class="list-group-item text-secondary">
+              <%= @likers.size %>
+            </div>
+          </div>       
+        <% end %>
         <% if current_user_admin? %>
           <%= link_to "Edit", edit_event_path(@event), class: "btn btn-warning px-4" %>
           <%= link_to "Delete", @event, class: "btn btn-danger px-4", method: :delete, 
@@ -18,5 +26,20 @@
         <% end %>
       </div>
     </div>
+  </div>  
+</div>
+
+<% if @likers.present? %>
+<div class="card m-3">  
+  <div class="card-body">
+    <h4>Liked by</h4>
+    <ul>
+      <% @likers.each do |user| %>
+        <li>
+          <%= link_to user.name, user %>
+        </li>
+      <% end %>
+    </ul>
+    <% end %>
   </div>  
 </div>

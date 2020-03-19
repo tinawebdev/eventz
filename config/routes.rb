@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :registrations
+    resources :likes
   end
 
   resource :session, only: [:new, :create, :destroy]
