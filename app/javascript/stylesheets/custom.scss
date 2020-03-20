@@ -10,3 +10,11 @@ div.field_with_errors {
     background: $error-background-color;
   }
 }
+
+.content {
+  min-height: calc(100vh - 70px);
+}
+
+.footer {
+  height: 40px;
+}
