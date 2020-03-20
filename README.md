@@ -2,6 +2,9 @@
 
 A Ruby on Rails application for creating and managing events.
 
+## Demo
+[eventzapp.herokuapp.com](https://eventzapp.herokuapp.com/) 
+
 ## Versions used
 
 * ruby '2.6.3'
