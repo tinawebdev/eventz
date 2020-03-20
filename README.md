@@ -1,24 +1,25 @@
-# README
+# EVENTZ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Ruby on Rails application for creating and managing events.
 
-Things you may want to cover:
+## Versions used
 
-* Ruby version
+* ruby '2.6.3'
+* rails '6.0.2.1'
 
-* System dependencies
+## Installation
 
-* Configuration
+To use the code:
 
-* Database creation
+1. Download the repository using the [instruction](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+2. In the command line go to the directory with the files downloaded.
+3. Install required gems. To do that:
+  * Check if the bundler is installed with the command `gem list bundler`.
+    * If it is not installed - installed it with the command `gem install bundler`.
+    * If bundler is already installed, that is perfect. Go to the next step.
+  * In the directory with the app, to install all necessary gems run `bundle`.
+4. To run migrations:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+bundle exec rake db:migrate
+```
