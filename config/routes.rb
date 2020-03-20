@@ -1,4 +1,4 @@
-Rails.application.routes.draw do  
+Rails.application.routes.draw do    
   root "events#index"
 
   resources :events do
@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
   resources :users
+  resources :categories
   
   get "signup" => "users#new"
 end
