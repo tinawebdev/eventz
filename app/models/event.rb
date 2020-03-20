@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  before_save :set_slug
+
   has_many :registrations, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :likers, through: :likes, source: :user
@@ -26,5 +28,15 @@ class Event < ApplicationRecord
 
   def sold_out?
     (capacity - registrations.size).zero?
+  end
+
+  def to_param
+    slug
+  end
+
+  private
+
+  def set_slug
+    self.slug = name.parameterize
   end
 end
