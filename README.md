@@ -20,9 +20,16 @@ To use the code:
   * Check if the bundler is installed with the command `gem list bundler`.
     * If it is not installed - installed it with the command `gem install bundler`.
     * If bundler is already installed, that is perfect. Go to the next step.
-  * In the directory with the app, to install all necessary gems run `bundle`.
-4. To run migrations:
+  * In the directory with the app, to install all necessary gems run:
+  ```
+  bundle install
+  ```
+4. Install all the dependencies listed within package.json in the local node_modules folder:
+```
+yarn install
+```
+5. To run migrations:
 
 ```
-bundle exec rake db:migrate
+bundle exec rails db:migrate
 ```
