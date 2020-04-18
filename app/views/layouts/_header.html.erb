@@ -1,41 +1,50 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <%= link_to "Eventz", root_path, class: "navbar-brand mb-0 mr-4 p-2 h1 font-weight-bold text-uppercase" %>       
-    <% if current_user_admin? %>
-      <%= link_to "Add New Event", new_event_path(@event), class: "btn btn-outline-warning btn-sm px-4 ml-3" %>        
-    <% end %>       
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <%= link_to "Upcoming", events_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Past", filtered_events_path(:past), class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Free", filtered_events_path(:free), class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Recent", filtered_events_path(:recent), class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Users", users_path, class: "nav-link" %>
-      </li>
-      <% if current_user %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <%= link_to current_user.name, current_user, class: "nav-link" %>
+          <%= link_to "Upcoming", events_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Sign out", session_path, 
-                      method: :delete, class: "nav-link" %>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Sign In", new_session_path, class: "nav-link" %>
+          <%= link_to "Past", filtered_events_path(:past), class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Sign Up", signup_path, class: "nav-link" %>
+          <%= link_to "Free", filtered_events_path(:free), class: "nav-link" %>
         </li>
-      <% end %>
-    </ul>
+        <li class="nav-item">
+          <%= link_to "Recent", filtered_events_path(:recent), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Users", users_path, class: "nav-link" %>
+        </li>
+        <% if current_user %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.name %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <% if current_user_admin? %>
+                <%= link_to (fa_icon('plus')+"Add New Event"), new_event_path(@event), class: "dropdown-item" %>
+              <% end %>
+              <%= link_to (fa_icon('user-alt')+"My Profile"), current_user, class:"dropdown-item" %>
+              <%= link_to (fa_icon('edit')+"Edit Account"), edit_user_path(current_user), class:"dropdown-item" %>
+              <%= link_to (fa_icon('sign-out-alt')+"Sign out"), session_path, 
+                        method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign In", new_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign Up", signup_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </nav>
 </header>
