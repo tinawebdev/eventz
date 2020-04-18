@@ -1,41 +1,49 @@
-<div class="card m-3">  
+<div class="card m-3">
   <div class="card-body">
     <h1><%= @user.name %></h1>
     <p><%= mail_to(@user.email) %></p>
     <div>
       <% if current_user?(@user) %>
-        <%= link_to "Edit Account", edit_user_path(@user), class: "btn btn-warning px-4" %>
+        <%= link_to "Edit Account", edit_user_path(@user), class: "btn btn-warning px-4 mb-2" %>
         <%= link_to "Delete Account", @user, method: :delete,
                     data: { confirm: "Are you shure?" },
-                    class: "btn btn-danger px-4" %>
+                    class: "btn btn-danger px-4 mb-2" %>
       <% end %>
     </div>
   </div>
 </div>
 
-<% if @registrations.present? %>
-  <div class="card m-3">  
-    <div class="card-body">  
-      <h3>Registrations</h3>
-      <% @registrations.each do |r| %> 
-        <ul class="mt-2">
-          <li class="mt-2">
-            <p class="m-0"><%= link_to r.event.name, r.event %></p>     
-            <small><%= time_ago_in_words(r.created_at) %> ago</small>
-          </li>
-        </ul>
-      <% end %>  
+<div class="d-flex flex-wrap">
+  <% if @registrations.present? %>
+    <div class="card m-3 flex-fill">
+      <div class="card-body">
+        <h3>Registrations</h3>
+        <div class="d-flex flex-wrap mt-3">
+          <% @registrations.each do |r| %>
+            <div class="mb-2 mt-2 p-2">
+              <%= image_tag r.event.image_file_name, class: "event-image" %>
+              <p class="m-0"><%= link_to r.event.name, r.event %></p>
+              <small><%= time_ago_in_words(r.created_at) %> ago</small>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
-<% if @liked_events.present? %>
-  <div class="card m-3">  
-    <div class="card-body">  
-      <h3>Liked Events</h3>
-      <% @liked_events.each do |event| %>      
-        <p class="m-0"><%= link_to event.name, event %></p>
-      <% end %>
+  <% if @liked_events.present? %>
+    <div class="card m-3 flex-fill">
+      <div class="card-body">
+        <h3>Liked Events</h3>
+        <div class="d-flex flex-wrap mt-3">
+          <% @liked_events.each do |event| %>
+            <div class="mb-2 mt-2 p-2">
+              <%= image_tag event.image_file_name, class: "event-image" %>
+              <p class="m-0"><%= link_to event.name, event %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
