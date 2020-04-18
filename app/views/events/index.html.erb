@@ -1,8 +1,8 @@
 <% @events.map do |event| %>
-  <div class="card m-3">  
+  <div class="card m-3">
     <div class="card-body">
       <div class="media">
-        <%= image_tag event.image_file_name, class: "align-self-start mr-5", style: "width: 150px; height:150px" %>
+        <%= image_tag event.image_file_name, class: "align-self-start mr-5 event-image" %>
         
         <div class="media-body">
           <h2><%= link_to event.name, event %></h2>

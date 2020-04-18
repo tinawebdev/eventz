@@ -11,6 +11,12 @@ div.field_with_errors {
   }
 }
 
+.event-image {
+  object-fit: cover;
+  width: 150px; 
+  height:150px;
+}
+
 .content {
   min-height: calc(100vh - 70px);
 }
