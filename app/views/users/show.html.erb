@@ -34,7 +34,7 @@
                           method: :delete, 
                           data: { confirm: "Really?" } %>
               </div>
-              <p class="m-0" style="width: 150px;"><%= link_to r.event.name, r.event %></p>
+              <p class="m-0"><%= link_to r.event.name, r.event %></p>
               <small><%= time_ago_in_words(r.created_at) %> ago</small>
             </div>
           <% end %>
