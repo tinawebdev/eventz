@@ -1,13 +1,15 @@
 <div class="card m-3">
   <div class="card-body">
     <h1><%= pluralize(@users.size, "User") %></h1>
-    <div class="container">
+    <div class="container d-flex flex-wrap mt-4">
       <% @users.map do |user| %>
-        <li>
-          <%= link_to user.name, user %>
-          created
-          <%= time_ago_in_words(user.created_at) %> ago
-        </li>
+        <div class="border rounded mr-2 mb-2 d-inline-flex" style="width: 300px">
+          <%= gravatar_for(user, styles: "rounded-left") %>
+          <div class="p-2">
+            <p class="m-0"><%= link_to user.name, user %></p>
+            <small>created <%= time_ago_in_words(user.created_at) %> ago</small>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
