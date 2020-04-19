@@ -1,20 +1,20 @@
 <div class="card m-3">
-  <div class="card-body">    
+  <div class="card-body">
     <h1>Registration for <%= link_to @event.name, @event %></h1>
 
     <%= form_with(model: [@event, @registration], local: true) do |f| %>
 
       <%= render "shared/errors", object: @registration %>
 
-      <div class="form-group row">     
+      <div class="form-group row">
         <div class="col-sm-12 my-2">
           <%= f.label :how_heard, class: "font-weight-bold" %>
-          <%= f.select :how_heard, Registration::HOW_HEARD_OPTIONS,
-                      prompt: "Pick one" %>       
+          <%= f.select(:how_heard, Registration::HOW_HEARD_OPTIONS,
+                      {prompt: "Pick one"}, {class: "form-control"}) %>
         </div>
       </div>
 
-        <%= f.submit class: "btn btn-warning px-4" %>  
+      <%= f.submit class: "btn btn-warning px-4" %>
     <% end %>
   </div>
 </div>
