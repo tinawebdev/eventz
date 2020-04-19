@@ -22,6 +22,13 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  def destroy
+    registration = current_user.registrations.find(params[:id])
+    registration.destroy
+  
+    redirect_to current_user, notice: "Successfully canceled!"
+  end
+
   private
 
   def registration_params

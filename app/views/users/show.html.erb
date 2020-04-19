@@ -28,8 +28,13 @@
         <div class="d-flex flex-wrap mt-3">
           <% @registrations.each do |r| %>
             <div class="mb-2 mt-2 p-2">
-              <%= image_tag r.event.image_file_name, class: "event-image" %>
-              <p class="m-0"><%= link_to r.event.name, r.event %></p>
+              <div style="width: 150px; height: 150px;">
+                <%= image_tag r.event.image_file_name, class: "event-image" %>
+                <%= link_to "Cancel", event_registration_path(r.event, r), class: "btn btn-sm btn-danger btn-cancel rounded-0 mb-0", 
+                          method: :delete, 
+                          data: { confirm: "Really?" } %>
+              </div>
+              <p class="m-0" style="width: 150px;"><%= link_to r.event.name, r.event %></p>
               <small><%= time_ago_in_words(r.created_at) %> ago</small>
             </div>
           <% end %>
