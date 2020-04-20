@@ -11,6 +11,7 @@ class Registration < ApplicationRecord
     'Other'
   ]
 
+  validates :user, uniqueness: {scope: :event_id}, if: -> { user.present? }
   validates :how_heard,
             inclusion: { in: HOW_HEARD_OPTIONS }
 end
