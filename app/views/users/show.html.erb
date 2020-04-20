@@ -30,9 +30,11 @@
             <div class="mb-2 mt-2 p-2">
               <div style="width: 150px; height: 150px;">
                 <%= image_tag r.event.image_file_name, class: "event-image" %>
-                <%= link_to "Cancel", event_registration_path(r.event, r), class: "btn btn-sm btn-danger btn-cancel rounded-0 mb-0", 
-                          method: :delete, 
-                          data: { confirm: "Really?" } %>
+                <% if current_user?(@user) %>
+                  <%= link_to "Cancel", event_registration_path(r.event, r), class: "btn btn-sm btn-danger btn-cancel rounded-0 mb-0", 
+                            method: :delete, 
+                            data: { confirm: "Really?" } %>
+                <% end %>
               </div>
               <p class="m-0"><%= link_to r.event.name, r.event %></p>
               <small><%= time_ago_in_words(r.created_at) %> ago</small>
