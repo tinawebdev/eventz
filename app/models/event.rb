@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   before_save :set_slug
 
   has_many :registrations, dependent: :destroy
+  has_many :registered_users, through: :registrations, source: :user
   has_many :likes, dependent: :destroy
   has_many :likers, through: :likes, source: :user
   has_many :categorizations, dependent: :destroy

@@ -18,6 +18,7 @@ class EventsController < ApplicationController
 
   def show
     @likers = @event.likers
+    @registered_users = @event.registered_users
     @categories = @event.categories
     if current_user
       @like = current_user.likes.find_by(event_id: @event.id)

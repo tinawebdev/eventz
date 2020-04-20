@@ -8,7 +8,11 @@
         <p class="badge badge-light ml-1 border border-primary"><%= pluralize(@event.capacity, "spot") %> &bull; <%= price(@event) %></p>
         <p><%= @event.description %></p>
         <div class="mb-3">
-          <%= register_or_sold_out(@event) %>
+          <% if @registered_users.include?(current_user) %>
+            <span class="badge badge-warning">You are already registered</span>
+          <% else %>
+            <%= register_or_sold_out(@event) %>
+          <% end%>
         </div>
         <p><%= link_to "Who's registered?", event_registrations_path(@event) %></p>
         <% if current_user %>
