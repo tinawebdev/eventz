@@ -33,3 +33,7 @@ yarn install
 ```
 bundle exec rails db:migrate
 ```
+6. To load the data from db/seeds.rb into the database:
+```
+bundle exec rails db:seed
+```
