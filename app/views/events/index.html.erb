@@ -1,10 +1,11 @@
 <% @events.map do |event| %>
   <div class="card m-3">
     <div class="card-body">
-      <div class="media">
-        <%= image_tag event.image_file_name, class: "align-self-start mr-5 event-image" %>
-        
-        <div class="media-body">
+      <div class="d-inline-flex flex-wrap">
+        <div class="mb-2">
+          <%= image_tag event.image_file_name, class: "mr-5 event-image" %>
+        </div>
+        <div>
           <h2><%= link_to event.name, event %></h2>
           <p class="font-weight-bold d-inline"><%= day_and_time(event) %> in <%= event.location %></p>
             
@@ -14,7 +15,7 @@
             <p class="badge badge-warning ml-1"><%= price(event) %></p>
           <% end %>
 
-          <p><%= truncate(event.description, lenght: 35, separator: ' ') %></p>
+          <p><%= truncate(event.description, length: 55, separator: ' ') %></p>
         </div>
       </div>
     </div>
