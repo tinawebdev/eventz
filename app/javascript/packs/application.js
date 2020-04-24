@@ -17,3 +17,7 @@ import './bootstrap_custom.js'
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+$(document).on("turbolinks:load", function() {
+  $('.alert').alert()
+})
